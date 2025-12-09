@@ -1,5 +1,5 @@
 import React from 'react'
-import "../components/Table.css"
+// import "../components/Table.css"
 
 const Table = () => {
   return (
@@ -7,7 +7,7 @@ const Table = () => {
   <div>STUDENT TABLE</div>
     <div className='table'>
       <table>
-        <thead>
+        <thead>s
             <tr>
             <th>NAME</th>
             <th>AGE</th>
