@@ -13,7 +13,7 @@ const Table = () => {
   <div>STUDENT TABLE</div>
     <div className='table'>
       <table>
-        <thead>
+        <thead>s
             <tr>
             <th>NAME</th>
             <th>AGE</th>
