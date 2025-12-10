@@ -1,5 +1,11 @@
 import React from 'react'
 import "../components/Table.css"
+import {getAllStudents} from '../services/api';
+import { useEffect } from 'react';
+
+useEffect(() => {
+    getAllStudents();
+}, []);
 
 const Table = () => {
   return (
