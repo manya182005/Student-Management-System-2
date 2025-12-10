@@ -43,6 +43,30 @@ app.get("/api/students", async (req, res) => {
     });
   }
 });
+app.delete("/api/student/:id", async (req, res) => {
+  try {
+    const deletedStudent = await Student.findByIdAndDelete(req.params.id);
+
+    if (!deletedStudent) {
+      return res.status(404).json({
+        success: false,
+        message: "Student not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Student deleted successfully",
+      student: deletedStudent,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: "Error deleting student",
+      error: error.message,
+    });
+  }
+});
 
 app.listen(PORT, () => {
   console.log("Application is running in PORT", PORT);
