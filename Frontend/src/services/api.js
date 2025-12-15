@@ -20,7 +20,19 @@ export const getAllStudents =  async () => {
 
     }
     catch (error) {
+        
         console.log("Enter getting students", error);
 
+    }
+}
+
+export const addStudents = async ({name,age}) => {
+    try {
+        const responce = await API.post("/student",{name,age});
+        return responce.data.message
+
+    }
+    catch (error){
+        console.log("Error creating students", error);
     }
 }
