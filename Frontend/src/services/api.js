@@ -12,11 +12,11 @@ export const getAllStudents =  async () => {
         console.log("responce data students",response.data.students);
 
         const studentsArray = response.data.students;
-        for(let i=0;i<studentsArray.length;i++){
-            console.log("Student Name:",studentsArray[i].name);
-            console.log("Student Age:",studentsArray[i].age);
-        }
-
+       // for(let i=0;i<studentsArray.length;i++){
+         //   console.log("Student Name:",studentsArray[i].name);
+           // console.log("Student Age:",studentsArray[i].age);
+        //}
+        return studentsArray;
 
     }
     catch (error) {
