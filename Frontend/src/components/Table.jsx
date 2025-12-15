@@ -1,12 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {getAllStudents} from '../services/api';
 
 
 
 const Table = () => {
+  const [students,setStudents] = useState([]);
+async function usefectchStudents(){
+  try{
+const students = await getAllStudents();
+
+setStudents(students);
+//console.log("Students",Students);
+  }
+  catch(error){
+  }
+
+}
+
   useEffect(() => {
-    getAllStudents();
+    usefectchStudents();
+   //const students = getAllStudents();
+   //console.log("Students",students);
 }, []);
   return (
   <>
@@ -21,31 +36,13 @@ const Table = () => {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Chandan</td>
-                <td>25</td>
-                <td></td>
+           {students.map((student) =>(
+            <tr key = {student._id} >
+              <td>{student.name}</td>
+              <td>{student.age}</td>
             </tr>
-            <tr>
-                <td>Manya</td>
-                <td>20</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Sandeep</td>
-                <td>22</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Farooq</td>
-                <td>24</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Manish</td>
-                <td>23</td>
-                <td></td>
-            </tr>
+             
+        ))}
         </tbody>
       </table>
     </div>
